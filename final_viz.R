@@ -4,6 +4,7 @@
 library("shiny")
 library("plotly")
 library("dplyr")
+library(lubridate)
 
 #my_server <- function(input, output) {
 #  output$plot1<- renderPlot({
@@ -19,6 +20,16 @@ library("dplyr")
           col="red",
           ylab="Frequency",
           xlab="Beat")
+  
+  months <- month(as.POSIXct(crime_data_Udistrict$Occurred.Date, format = "%m/%d/%Y"))
+  crime_data_Udistrict$Occurred.Date <- months
+  frequency_by_month <- group_by(crime_data_Udistrict, Occurred.Date) %>%
+    summarize(
+      n = n()  
+    )
+  crime_barplot <- barplot(frequency_by_month$n, names.arg = frequency_by_month$Occurred.Date, horiz = FALSE, col = frequency_by_month$Occurred.Date, 
+                           main = paste("Frequency of Crimes in the U District by Month (2008-2017"), 
+                           xlab = "Months 1-12", ylab = "Number of Crimes")
   
     
 #    })
