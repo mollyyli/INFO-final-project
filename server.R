@@ -1,7 +1,6 @@
 #install.packages("shiny")  
 #install.packages("plotly")  
 #install.packages("dplyr")
-#install.packages("lubridate")
 library(shiny)
 library(plotly)
 library(dplyr)
@@ -11,6 +10,7 @@ library(data.table)
 my_server <- function(input, output) {
   crime_data <- read.csv("Crime_Data.csv")
   crime_data_Udistrict <- crime_data %>% filter(Neighborhood == "UNIVERSITY")
+  
   output$plot1<- renderPlot({
     new_data1 <- crime_data_Udistrict %>%
       filter(as.Date(Reported.Date, "%m/%d/%Y") >= input$dates[1] & as.Date(Reported.Date, "%m/%d/%Y") <= input$dates[2])
@@ -72,4 +72,6 @@ my_server <- function(input, output) {
       )
   })
 }
+
+shinyServer(my_server)
     
