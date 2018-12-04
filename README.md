@@ -1,7 +1,7 @@
 # INFO-final-project
 ## University District Crime Data
 
-### [**Link to the app**](https://github.com/mollyyli/INFO-final-project/)
+### [**Link to the app**](https://thebriando.shinyapps.io/INFO-final-project/)
 
 This data originates from the Seattle Police Department which we accessed via API. This dataset contains all of the reported incidents in the greater Seattle area from 2008-2017. We narrowed down the dataset for this application to just the reports within the University District. The details contained within this data include:
 
