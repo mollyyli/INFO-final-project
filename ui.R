@@ -1,7 +1,9 @@
 library(shiny)
 library(dplyr)
+library(plotly)
 library(data.table)
 library(ggplot2)
+library(rsconnect)
 
 crime_data <- read.csv("Crime_Data.csv")
 crime_data_Udistrict <- crime_data %>% filter(Neighborhood == "UNIVERSITY")
