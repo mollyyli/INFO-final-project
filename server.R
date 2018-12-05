@@ -17,13 +17,16 @@ my_server <- function(input, output) {
     crime_data_beat <- new_data1 %>% group_by(Beat) %>% summarize(count = n())
     barplot(
       crime_data_beat$count, 
-      main=paste("Crime Data in U district"),
+      main=paste("Crime Data in different sectors in U district"),
       names.arg = crime_data_beat$Beat,
-      cex.names=0.8,
-      las=2,
-      col="red",
-      ylab="Frequency",
-      xlab="Beat")
+      horiz=TRUE,
+      cex_axis=0.7,
+      cex_names=0.7,
+      offset=0,
+      las=1,
+      col="dark blue",
+      ylab="Sector",
+      xlab="Frequency")
   })
   
   output$plot2 <- renderPlot({
@@ -33,7 +36,7 @@ my_server <- function(input, output) {
     new_data2$Occurred.Date <- months
     frequency_by_month <- group_by(new_data2, Occurred.Date) %>%
       summarize(n = n())
-    crime_barplot <- barplot(frequency_by_month$n, names.arg = frequency_by_month$Occurred.Date, horiz = FALSE, col = frequency_by_month$Occurred.Date,
+    crime_barplot <- barplot(frequency_by_month$n, names.arg = frequency_by_month$Occurred.Date, horiz = FALSE, col = "purple",
                              main = paste("Frequency of Crimes in the U District by Month (2008-2017)"),
                              xlab = "Months 1-12", ylab = "Number of Crimes")
   })

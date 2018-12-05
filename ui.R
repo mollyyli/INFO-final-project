@@ -12,11 +12,20 @@ my_ui <- fluidPage(
   
   # Application title
   titlePanel("University District Crime"),
+  fluidRow(
+    paste("This data originates from the Seattle Police Department which we accessed via API. This dataset contains all of the reported incidents in the greater Seattle area from 2008-2017. We narrowed down the dataset for this application to just the reports within the University District.")
+  ),
+    
+    
+  
   
   # Sidebar with a slider input for number of bins 
   fluidRow(
     column(6,
-           img(src='Seattle-Police-Department-SPD-north-precinct.png', align = "right")       
+           img(src='Seattle-Police-Department-SPD-north-precinct.png', align = "right") 
+           ,
+           paste("The map represents each sector in Seattle. L1, U1, U2, and U3 are sectors at UW")
+
     ),
     column(6,
            plotOutput("plot1"),
