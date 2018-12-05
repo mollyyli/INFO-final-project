@@ -38,7 +38,9 @@ my_ui <- fluidPage(
                          label = h4("Crime Type:"), 
                          choices = as.vector(unique(crime_data_Udistrict$Crime.Subcategory))
              )
-           )
+           ),
+           paste("The question we asked was 'when do crimes occur most often?' Use the drop down menu to compare the frequencies of"), 
+           paste("crimes by type of crime over the months in a year.")
     ),
     column(6,
            plotlyOutput("plot3"),
