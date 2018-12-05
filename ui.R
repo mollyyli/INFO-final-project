@@ -26,7 +26,9 @@ my_ui <- fluidPage(
                             start = "2008-01-01",
                             end = "2017-12-31"
              )
-           )
+           ),
+           paste("The question we asked was 'Where do crime happen the most often in Udistrict' Use the Date Range to select a date range"), 
+           paste("to see the frequencies of crimes in different sections of U District")
     )
   ),
   hr(),
@@ -51,7 +53,8 @@ my_ui <- fluidPage(
                          max = 2359, 
                          value = c(0, 2359)
              )
-           )
+           ),
+           paste("The question we asked was 'what is the frequency of each crime?'. The widget controls the time window of the crimes in military time.")
     )
   )
 )
